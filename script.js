@@ -33,6 +33,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// === BASIC FALLBACK ===
+// Prevents crash when initializeGame() is missing
 function initializeGame() {
-    console.log("Game initialized!");
+    console.log("✅ Apex Analyzer initialized successfully!");
+    
+    // Show a test message so you know it’s working
+    const container = document.getElementById('game-container');
+    container.innerHTML = `
+        <div style="text-align:center; margin-top: 100px; color: white;">
+            <h1>Welcome to The Apex Analyzer 🦈</h1>
+            <p>Access Granted — Game successfully loaded.</p>
+        </div>
+    `;
 }
