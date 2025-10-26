@@ -20,10 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Attach event listeners
-    document.querySelector('.password-submit').addEventListener('click', checkPassword);
-    passwordInput.addEventListener('keypress', e => {
-        if (e.key === 'Enter') checkPassword();
-    });
+    const submitButton = document.querySelector('.password-submit');
+    if (submitButton) {
+        submitButton.addEventListener('click', checkPassword);
+    }
+    if (passwordInput) {
+        passwordInput.addEventListener('keypress', e => {
+            if (e.key === 'Enter') checkPassword();
+        });
+    }
 
     // Auto-skip password if already verified
     if (sessionStorage.getItem('apexAccess') === 'true') {
@@ -38,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function initializeGame() {
     console.log("✅ Apex Analyzer initialized successfully!");
     
-    // Show a test message so you know it’s working
     const container = document.getElementById('game-container');
     container.innerHTML = `
         <div style="text-align:center; margin-top: 100px; color: white;">
