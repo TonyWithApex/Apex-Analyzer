@@ -118,7 +118,7 @@ const properties = [
             { id: 'C', price: 120000, date: '3 months ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
             { id: 'D', price: 200000, date: '6 months ago', condition: 'Large 3 bed home (ignore).', isGood: false },
             { id: 'E', price: 80000, date: '1 year ago', condition: 'Sale too old.', isGood: false },
-            { id: 'F', price: 50000, date: '1 month ago', condition: 'Vacant land sale.', isGood: false } 
+            { id: 'F', price: 50000, date: '1 month ago', condition: 'Vacant land sale.', isGood: false }
         ]
     },
     // 4. Premium Area, Light Cosmetic (High ARV, Low Rehab)
@@ -142,7 +142,7 @@ const properties = [
             { id: 'C', price: 860000, date: '1 week ago', condition: 'Highest ARV comp, good ceiling.', isGood: true },
             { id: 'D', price: 830000, date: '3 months ago', condition: 'Good ARV indicator.', isGood: true },
             { id: 'E', price: 650000, date: '6 months ago', condition: 'Sold by motivated seller.', isGood: false },
-            { id: 'F', price: 700000, date: '1 year ago', condition: 'Sale too old.', isGood: false } 
+            { id: 'F', price: 700000, date: '1 year ago', condition: 'Sale too old.', isGood: false }
         ]
     },
     // 5. Fire Damage, Mid-Range (Mid ARV, High Rehab)
@@ -166,11 +166,1092 @@ const properties = [
             { id: 'C', price: 300000, date: '1 month ago', condition: 'Two-story home (ignore).', isGood: false },
             { id: 'D', price: 255000, date: '3 weeks ago', condition: 'Solid ARV indicator.', isGood: true },
             { id: 'E', price: 150000, date: '6 months ago', condition: 'Sold As-Is with damage.', isGood: false },
-            { id: 'F', price: 180000, date: '1 year ago', condition: 'Sale too old.', isGood: false } 
+            { id: 'F', price: 180000, date: '1 year ago', condition: 'Sale too old.', isGood: false }
+        ]
+    },
+    // 6. Quick Turn Rental (Low ARV, Very Low Rehab)
+    {
+        id: 6,
+        address: "7 Renters Delight",
+        beds: 2, baths: 1, sqFt: 800,
+        condition: "Rent-ready, but needs new paint and deep clean to maximize rent/value.",
+        trueARV: Math.round((185000 + 190000 + 160000) / 3),
+        trueRepairs: 15000,
+        repairOptions: [
+            { value: 9000, isCorrect: false },
+            { value: 15000, isCorrect: true },
+            { value: 20000, isCorrect: false },
+            { value: 25000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((185000 + 190000 + 160000) / 3)) - (2 * 15000) - 10000),
+        comps: [
+            { id: 'A', price: 185000, date: '2 weeks ago', condition: 'Identical unit, strong ARV.', isGood: true },
+            { id: 'B', price: 190000, date: '1 month ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 160000, date: '3 months ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
+            { id: 'D', price: 220000, date: '6 months ago', condition: 'Sold with a detached garage (ignore).', isGood: false },
+            { id: 'E', price: 100000, date: '1 year ago', condition: 'Sale too old.', isGood: false },
+            { id: 'F', price: 150000, date: '4 months ago', condition: 'Sold As-Is.', isGood: false }
+        ]
+    },
+    // 7. Hoarder House Cleanout (Mid ARV, Mid-High Rehab)
+    {
+        id: 7,
+        address: "33 Clutter Court",
+        beds: 3, baths: 2, sqFt: 1600,
+        condition: "Major cleanout needed. Interior is trashed. Requires new floors, kitchen, and minor drywall repair.",
+        trueARV: Math.round((340000 + 360000 + 355000) / 3),
+        trueRepairs: 65000,
+        repairOptions: [
+            { value: 40000, isCorrect: false },
+            { value: 65000, isCorrect: true },
+            { value: 90000, isCorrect: false },
+            { value: 115000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((340000 + 360000 + 355000) / 3)) - (2 * 65000) - 10000),
+        comps: [
+            { id: 'A', price: 340000, date: '1 week ago', condition: 'Reliable ARV comp.', isGood: true },
+            { id: 'B', price: 360000, date: '2 months ago', condition: 'Highest ARV comp, good ceiling.', isGood: true },
+            { id: 'C', price: 400000, date: '1 month ago', condition: '4 bed, much larger (ignore).', isGood: false },
+            { id: 'D', price: 355000, date: '3 weeks ago', condition: 'Solid ARV indicator.', isGood: true },
+            { id: 'E', price: 250000, date: '6 months ago', condition: 'Sold by motivated seller.', isGood: false },
+            { id: 'F', price: 200000, date: '1 year ago', condition: 'Sale too old.', isGood: false }
+        ]
+    },
+    // 8. Bad Area, Minimal Profit (Low ARV, Mid Rehab)
+    {
+        id: 8,
+        address: "8 Tough Neighborhood",
+        beds: 3, baths: 1, sqFt: 1100,
+        condition: "Need new roof, HVAC, and full cosmetic overhaul. Area dictates low ARV cap.",
+        trueARV: Math.round((165000 + 175000 + 155000) / 3),
+        trueRepairs: 50000,
+        repairOptions: [
+            { value: 30000, isCorrect: false },
+            { value: 50000, isCorrect: true },
+            { value: 70000, isCorrect: false },
+            { value: 90000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((165000 + 175000 + 155000) / 3)) - (2 * 50000) - 10000),
+        comps: [
+            { id: 'A', price: 165000, date: '2 weeks ago', condition: 'Reliable ARV comp.', isGood: true },
+            { id: 'B', price: 175000, date: '1 month ago', condition: 'Highest ARV comp, good ceiling.', isGood: true },
+            { id: 'C', price: 200000, date: '3 months ago', condition: 'Just outside the area (ignore).', isGood: false },
+            { id: 'D', price: 155000, date: '1 week ago', condition: 'Lowest ARV comp.', isGood: true },
+            { id: 'E', price: 100000, date: '1 year ago', condition: 'Sale too old.', isGood: false },
+            { id: 'F', price: 80000, date: '6 months ago', condition: 'Sold As-Is.', isGood: false }
+        ]
+    },
+    // 9. Good Structure, Full Cosmetic (Mid ARV, Mid Rehab)
+    {
+        id: 9,
+        address: "11 All Systems Go",
+        beds: 4, baths: 3, sqFt: 2000,
+        condition: "All systems (HVAC, roof) are modern. Needs new kitchen, baths, and flooring throughout.",
+        trueARV: Math.round((410000 + 390000 + 350000) / 3),
+        trueRepairs: 55000,
+        repairOptions: [
+            { value: 35000, isCorrect: false },
+            { value: 55000, isCorrect: true },
+            { value: 75000, isCorrect: false },
+            { value: 100000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((410000 + 390000 + 350000) / 3)) - (2 * 55000) - 10000),
+        comps: [
+            { id: 'A', price: 410000, date: '1 month ago', condition: 'Highest ARV comp, good ceiling.', isGood: true },
+            { id: 'B', price: 390000, date: '2 weeks ago', condition: 'Reliable ARV comp.', isGood: true },
+            { id: 'C', price: 350000, date: '3 months ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
+            { id: 'D', price: 450000, date: '1 week ago', condition: 'New construction (ignore).', isGood: false },
+            { id: 'E', price: 250000, date: '1 year ago', condition: 'Sale too old.', isGood: false },
+            { id: 'F', price: 300000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 10. Large Rehab, Potential Addition (High ARV, Mid-High Rehab)
+    {
+        id: 10,
+        address: "55 Copper Peak Dr",
+        beds: 4, baths: 2, sqFt: 2500,
+        condition: "Large home, requires new roof, windows, and full cosmetic. Potential for 3rd bath addition ($15k cost).",
+        trueARV: Math.round((540000 + 580000 + 555000) / 3),
+        trueRepairs: 80000,
+        repairOptions: [
+            { value: 50000, isCorrect: false },
+            { value: 80000, isCorrect: true },
+            { value: 110000, isCorrect: false },
+            { value: 145000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((540000 + 580000 + 555000) / 3)) - (2 * 80000) - 10000),
+        comps: [
+            { id: 'A', price: 540000, date: '2 weeks ago', condition: 'Reliable ARV comp.', isGood: true },
+            { id: 'B', price: 580000, date: '1 month ago', condition: 'Includes 3rd bath addition (good ARV indicator).', isGood: true },
+            { id: 'C', price: 650000, date: '3 months ago', condition: 'New construction (ignore).', isGood: false },
+            { id: 'D', price: 555000, date: '1 week ago', condition: 'Highest ARV comp, good ceiling.', isGood: true },
+            { id: 'E', price: 400000, date: '6 months ago', condition: 'Sold As-Is.', isGood: false },
+            { id: 'F', price: 450000, date: '1 year ago', condition: 'Sale too old.', isGood: false }
+        ]
+    },
+    // 11. Basement Leak Fix (Mid ARV, Low-Mid Rehab)
+    {
+        id: 11,
+        address: "65 Riverbend Circle",
+        beds: 3, baths: 2, sqFt: 1800,
+        condition: "Modern open concept, but basement requires $15k in waterproofing. Light cosmetic upstairs.",
+        trueARV: Math.round((410000 + 425000 + 415000) / 3),
+        trueRepairs: 40000,
+        repairOptions: [
+            { value: 25000, isCorrect: false },
+            { value: 40000, isCorrect: true },
+            { value: 55000, isCorrect: false },
+            { value: 70000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((410000 + 425000 + 415000) / 3)) - (2 * 40000) - 10000),
+        comps: [
+            { id: 'A', price: 410000, date: '2 weeks ago', condition: 'Perfect match, same neighborhood.', isGood: true },
+            { id: 'B', price: 445000, date: '1 month ago', condition: 'Fully finished basement (subject is unfinished).', isGood: false },
+            { id: 'C', price: 425000, date: '1 week ago', condition: 'Recent sale, excellent ARV indicator.', isGood: true },
+            { id: 'D', price: 300000, date: '1 year ago', condition: 'Sale too old.', isGood: false },
+            { id: 'E', price: 415000, date: '3 months ago', condition: 'Good comp, slight adjustment for age.', isGood: true },
+            { id: 'F', price: 350000, date: '2 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 12. Small Lot, Premium Area (High ARV, Low Rehab)
+    {
+        id: 12,
+        address: "22 Cypress Way",
+        beds: 4, baths: 3, sqFt: 2200,
+        condition: "Top school district. Needs quick cosmetic refresh to meet buyer expectations. Systems are sound.",
+        trueARV: Math.round((745000 + 700000 + 760000) / 3),
+        trueRepairs: 30000,
+        repairOptions: [
+            { value: 18000, isCorrect: false },
+            { value: 30000, isCorrect: true },
+            { value: 40000, isCorrect: false },
+            { value: 55000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((745000 + 700000 + 760000) / 3)) - (2 * 30000) - 10000),
+        comps: [
+            { id: 'A', price: 745000, date: '1 month ago', condition: 'Similar size, perfect comp.', isGood: true },
+            { id: 'B', price: 700000, date: '3 months ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
+            { id: 'C', price: 850000, date: '2 months ago', condition: 'New construction (ignore).', isGood: false },
+            { id: 'D', price: 760000, date: '2 weeks ago', condition: 'High-end finishes, good ARV ceiling.', isGood: true },
+            { id: 'E', price: 650000, date: '1 year ago', condition: 'Sale too old.', isGood: false },
+            { id: 'F', price: 500000, date: '6 months ago', condition: 'Small 3 bed unit, ignore.', isGood: false }
+        ]
+    },
+    // 13. Deferred Maintenance Special (Mid-Low ARV, Mid Rehab)
+    {
+        id: 13,
+        address: "18 Pine Needle Rd",
+        beds: 3, baths: 1, sqFt: 1300,
+        condition: "Needs roof, HVAC, and kitchen updates. General deferred maintenance for 10+ years.",
+        trueARV: Math.round((255000 + 280000 + 265000) / 3),
+        trueRepairs: 60000,
+        repairOptions: [
+            { value: 35000, isCorrect: false },
+            { value: 60000, isCorrect: true },
+            { value: 85000, isCorrect: false },
+            { value: 110000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((255000 + 280000 + 265000) / 3)) - (2 * 60000) - 10000),
+        comps: [
+            { id: 'A', price: 255000, date: '3 weeks ago', condition: 'Comparable rehab, reliable.', isGood: true },
+            { id: 'B', price: 280000, date: '1 month ago', condition: 'Larger lot and better view (adjust down).', isGood: true },
+            { id: 'C', price: 220000, date: '2 months ago', condition: 'Sold by motivated seller, low price.', isGood: false },
+            { id: 'D', price: 350000, date: '1 year ago', condition: 'Completely different area.', isGood: false },
+            { id: 'E', price: 265000, date: '1 week ago', condition: 'Excellent recent comp.', isGood: true },
+            { id: 'F', price: 150000, date: '6 months ago', condition: 'Burned down property.', isGood: false }
+        ]
+    },
+    // 14. Multifamily Conversion Potential (High ARV, High Rehab)
+    {
+        id: 14,
+        address: "41 Industrial Way",
+        beds: 4, baths: 2, sqFt: 2500,
+        condition: "Large single-family house zoned for duplex conversion. Needs full gut, new electrical/plumbing for two units.",
+        trueARV: Math.round((620000 + 590000 + 610000) / 3),
+        trueRepairs: 120000,
+        repairOptions: [
+            { value: 70000, isCorrect: false },
+            { value: 120000, isCorrect: true },
+            { value: 170000, isCorrect: false },
+            { value: 215000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((620000 + 590000 + 610000) / 3)) - (2 * 120000) - 10000),
+        comps: [
+            { id: 'A', price: 620000, date: '1 month ago', condition: 'Recently converted duplex.', isGood: true },
+            { id: 'B', price: 550000, date: '3 months ago', condition: 'Standard single-family remodel (not true ARV).', isGood: false },
+            { id: 'C', price: 590000, date: '2 weeks ago', condition: 'Converted property, good ceiling price.', isGood: true },
+            { id: 'D', price: 700000, date: '6 weeks ago', condition: 'New commercial development (ignore).', isGood: false },
+            { id: 'E', price: 610000, date: '2 months ago', condition: 'Solid duplex comp.', isGood: true },
+            { id: 'F', price: 400000, date: '1 year ago', condition: 'Sold as vacant land.', isGood: false }
+        ]
+    },
+    // 15. Flooded Basement/Mold (Mid-Low ARV, Very High Rehab)
+    {
+        id: 15,
+        address: "707 Puddle Place",
+        beds: 3, baths: 1, sqFt: 1000,
+        condition: "Unfinished basement flooded. Significant mold and HVAC replacement required.",
+        trueARV: Math.round((195000 + 205000 + 210000) / 3),
+        trueRepairs: 80000,
+        repairOptions: [
+            { value: 50000, isCorrect: false },
+            { value: 80000, isCorrect: true },
+            { value: 110000, isCorrect: false },
+            { value: 145000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((195000 + 205000 + 210000) / 3)) - (2 * 80000) - 10000),
+        comps: [
+            { id: 'A', price: 195000, date: '1 week ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 250000, date: '3 months ago', condition: 'Recently added second bath (subject only has one).', isGood: false },
+            { id: 'C', price: 205000, date: '2 months ago', condition: 'Best reliable comp.', isGood: true },
+            { id: 'D', price: 150000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'E', price: 210000, date: '1 month ago', condition: 'High end of comp range.', isGood: true },
+            { id: 'F', price: 100000, date: '6 months ago', condition: 'Foreclosure, ignore.', isGood: false }
+        ]
+    },
+    // 16. Average Suburban Flip (Mid ARV, Mid Rehab)
+    {
+        id: 16,
+        address: "800 Generic Ave",
+        beds: 4, baths: 3, sqFt: 2100,
+        condition: "Needs full cosmetic updates throughout. Roof is 15 years old and needs replacement.",
+        trueARV: Math.round((440000 + 460000 + 450000) / 3),
+        trueRepairs: 65000,
+        repairOptions: [
+
+      { value: 40000, isCorrect: false },
+            { value: 65000, isCorrect: true },
+            { value: 90000, isCorrect: false },
+            { value: 115000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((440000 + 460000 + 450000) / 3)) - (2 * 65000) - 10000),
+        comps: [
+            { id: 'A', price: 440000, date: '1 month ago', condition: 'Standard flip, useable.', isGood: true },
+            { id: 'B', price: 480000, date: '2 weeks ago', condition: 'Oversized lot, adjust down.', isGood: false },
+            { id: 'C', price: 460000, date: '1 week ago', condition: 'Excellent ARV comp.', isGood: true },
+            { id: 'D', price: 350000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'E', price: 450000, date: '3 months ago', condition: 'Perfect match to subject ARV.', isGood: true },
+            { id: 'F', price: 550000, date: '2 months ago', condition: 'Brand new construction (ignore).', isGood: false }
+        ]
+    },
+    // 17. High-End Condos (High ARV, Low Rehab)
+    {
+        id: 17,
+        address: "15 Sky Tower, Unit 12B",
+        beds: 2, baths: 2, sqFt: 1100,
+        condition: "High-rise unit. Needs minor kitchen refresh and new flooring. Excellent views are a factor.",
+        trueARV: Math.round((645000 + 660000 + 650000) / 3),
+        trueRepairs: 20000,
+        repairOptions: [
+            { value: 12000, isCorrect: false },
+            { value: 20000, isCorrect: true },
+            { value: 30000, isCorrect: false },
+            { value: 35000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((645000 + 660000 + 650000) / 3)) - (2 * 20000) - 10000),
+        comps: [
+            { id: 'A', price: 645000, date: '1 week ago', condition: 'Identical unit, strong ARV.', isGood: true },
+            { id: 'B', price: 700000, date: '1 month ago', condition: 'Penthouse view (adjust down).', isGood: false },
+            { id: 'C', price: 660000, date: '2 weeks ago', condition: 'Best recent comp.', isGood: true },
+            { id: 'D', price: 550000, date: '6 months ago', condition: 'Facing alley (ignore).', isGood: false },
+            { id: 'E', price: 650000, date: '3 months ago', condition: 'Reliable sale, similar floor.', isGood: true },
+            { id: 'F', price: 400000, date: '1 year ago', condition: 'Too old.', isGood: false }
+        ]
+    },
+    // 18. Fire Damage Repair (Mid ARV, Very High Rehab)
+    {
+        id: 18,
+        address: "102 Ashes Drive",
+        beds: 3, baths: 2, sqFt: 1600,
+        condition: "Minor fire damage in the kitchen, smoke damage throughout. Requires full system checks and mitigation.",
+        trueARV: Math.round((305000 + 310000 + 285000) / 3),
+        trueRepairs: 90000,
+        repairOptions: [
+            { value: 55000, isCorrect: false },
+            { value: 90000, isCorrect: true },
+            { value: 125000, isCorrect: false },
+            { value: 160000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((305000 + 310000 + 285000) / 3)) - (2 * 90000) - 10000),
+        comps: [
+            { id: 'A', price: 305000, date: '1 month ago', condition: 'Similar size, perfect comp.', isGood: true },
+            { id: 'B', price: 250000, date: '2 months ago', condition: 'Sold as-is, not renovated.', isGood: false },
+            { id: 'C', price: 310000, date: '2 weeks ago', condition: 'High-end ARV comp.', isGood: true },
+            { id: 'D', price: 285000, date: '3 months ago', condition: 'Solid ARV comp.', isGood: true },
+            { id: 'E', price: 400000, date: '1 year ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 200000, date: '6 months ago', condition: 'Vacant lot sale.', isGood: false }
+        ]
+    },
+    // 19. Historical District Fix (Low ARV, Mid Rehab)
+    {
+        id: 19,
+        address: "7 Old Colonial St",
+        beds: 3, baths: 1, sqFt: 1250,
+        condition: "Historical property. Interior needs full renovation, but exterior brick/windows must be preserved (costly).",
+        trueARV: Math.round((215000 + 225000 + 220000) / 3),
+        trueRepairs: 55000,
+        repairOptions: [
+            { value: 35000, isCorrect: false },
+            { value: 55000, isCorrect: true },
+            { value: 75000, isCorrect: false },
+            { value: 100000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((215000 + 225000 + 220000) / 3)) - (2 * 55000) - 10000),
+        comps: [
+            { id: 'A', price: 215000, date: '1 week ago', condition: 'Historic district remodel, reliable.', isGood: true },
+            { id: 'B', price: 250000, date: '1 month ago', condition: 'Recently added second floor (subject is single-story).', isGood: false },
+            { id: 'C', price: 225000, date: '2 weeks ago', condition: 'Best recent comp.', isGood: true },
+            { id: 'D', price: 150000, date: '1 year ago', condition: 'Sale too old.', isGood: false },
+            { id: 'E', price: 220000, date: '3 months ago', condition: 'Excellent ARV match.', isGood: true },
+            { id: 'F', price: 100000, date: '6 months ago', condition: 'Commercial property.', isGood: false }
+        ]
+    },
+    // 20. New Roof and Systems (Mid ARV, Mid-High Rehab)
+    {
+        id: 20,
+        address: "10 Cedar Lane",
+        beds: 4, baths: 2, sqFt: 1750,
+        condition: "Cosmetic wear, but roof, furnace, and AC are all original and must be replaced.",
+        trueARV: Math.round((380000 + 370000 + 390000) / 3),
+        trueRepairs: 70000,
+        repairOptions: [
+            { value: 40000, isCorrect: false },
+            { value: 70000, isCorrect: true },
+            { value: 100000, isCorrect: false },
+            { value: 125000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((380000 + 370000 + 390000) / 3)) - (2 * 70000) - 10000),
+        comps: [
+            { id: 'A', price: 380000, date: '1 month ago', condition: 'Similar size, great ARV.', isGood: true },
+            { id: 'B', price: 450000, date: '2 weeks ago', condition: 'Significantly larger lot and pool (exclude).', isGood: false },
+            { id: 'C', price: 370000, date: '1 week ago', condition: 'Solid ARV comp.', isGood: true },
+            { id: 'D', price: 390000, date: '3 months ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'E', price: 250000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'F', price: 300000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 21. Light Cosmetic, Investor Special (Mid ARV, Low Rehab)
+    {
+        id: 21,
+        address: "42 Market Square",
+        beds: 2, baths: 1, sqFt: 1050,
+        condition: "Ready to rent but needs new paint and carpet to maximize rent rate. Perfect buy-and-hold.",
+        trueARV: Math.round((205000 + 215000 + 210000) / 3),
+        trueRepairs: 20000,
+        repairOptions: [
+            { value: 12000, isCorrect: false },
+            { value: 20000, isCorrect: true },
+            { value: 30000, isCorrect: false },
+            { value: 35000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((205000 + 215000 + 210000) / 3)) - (2 * 20000) - 10000),
+        comps: [
+            { id: 'A', price: 205000, date: '1 month ago', condition: 'Similar condition, good ARV.', isGood: true },
+            { id: 'B', price: 230000, date: '2 weeks ago', condition: 'Fully updated kitchen (adjust down).', isGood: false },
+            { id: 'C', price: 215000, date: '1 week ago', condition: 'Excellent comp.', isGood: true },
+            { id: 'D', price: 180000, date: '3 months ago', condition: 'Sold by family, low price.', isGood: false },
+            { id: 'E', price: 210000, date: '4 months ago', condition: 'Solid ARV match.', isGood: true },
+            { id: 'F', price: 150000, date: '1 year ago', condition: 'Too old.', isGood: false }
+        ]
+    },
+    // 22. Foundation Issues (Mid-High ARV, Extremely High Rehab)
+    {
+        id: 22,
+        address: "100 Shakey Ground Rd",
+        beds: 4, baths: 3, sqFt: 2400,
+        condition: "Major foundation issues. Requires $70k in structural work plus cosmetic updates.",
+        trueARV: Math.round((490000 + 520000 + 505000) / 3),
+        trueRepairs: 110000,
+        repairOptions: [
+            { value: 65000, isCorrect: false },
+            { value: 110000, isCorrect: true },
+            { value: 155000, isCorrect: false },
+            { value: 200000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((490000 + 520000 + 505000) / 3)) - (2 * 110000) - 10000),
+        comps: [
+            { id: 'A', price: 490000, date: '1 week ago', condition: 'Similar home, strong ARV.', isGood: true },
+            { id: 'B', price: 520000, date: '1 month ago', condition: 'High-end remodel, top ARV.', isGood: true },
+            { id: 'C', price: 400000, date: '3 months ago', condition: 'Sold with foundation issues (ignore).', isGood: false },
+            { id: 'D', price: 505000, date: '2 weeks ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 600000, date: '1 year ago', condition: '4,000 sq ft home (ignore).', isGood: false },
+            { id: 'F', price: 450000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 23. Vacant Lot Potential (High ARV, Low Rehab)
+    {
+        id: 23,
+        address: "303 Infill Street",
+        beds: 3, baths: 2, sqFt: 1500,
+        condition: "Small lot, high price/sq ft area. Needs quick light cosmetic updates to flip fast.",
+        trueARV: Math.round((590000 + 550000 + 585000) / 3),
+        trueRepairs: 25000,
+        repairOptions: [
+            { value: 15000, isCorrect: false },
+            { value: 25000, isCorrect: true },
+            { value: 35000, isCorrect: false },
+            { value: 45000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((590000 + 550000 + 585000) / 3)) - (2 * 25000) - 10000),
+        comps: [
+            { id: 'A', price: 590000, date: '1 month ago', condition: 'Similar size, perfect comp.', isGood: true },
+            { id: 'B', price: 550000, date: '3 months ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
+            { id: 'C', price: 650000, date: '2 weeks ago', condition: 'Larger lot, adjust down.', isGood: false },
+            { id: 'D', price: 585000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 450000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'F', price: 500000, date: '6 months ago', condition: '3 story home (ignore).', isGood: false }
+        ]
+    },
+    // 24. Full Gut, Large Home (High ARV, Very High Rehab)
+    {
+        id: 24,
+        address: "777 Money Pit Mansion",
+        beds: 5, baths: 4, sqFt: 3500,
+        condition: "Requires total gut. All systems, windows, roof, and interior must be new.",
+        trueARV: Math.round((920000 + 850000 + 900000) / 3),
+        trueRepairs: 180000,
+        repairOptions: [
+            { value: 110000, isCorrect: false },
+            { value: 180000, isCorrect: true },
+            { value: 250000, isCorrect: false },
+            { value: 325000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((920000 + 850000 + 900000) / 3)) - (2 * 180000) - 10000),
+        comps: [
+            { id: 'A', price: 920000, date: '1 month ago', condition: 'Top comp, high end.', isGood: true },
+            { id: 'B', price: 850000, date: '3 months ago', condition: 'Standard finishes, solid ARV.', isGood: true },
+            { id: 'C', price: 900000, date: '2 weeks ago', condition: 'Excellent match to true ARV.', isGood: true },
+            { id: 'D', price: 1100000, date: '1 year ago', condition: 'Luxury custom build (ignore).', isGood: false },
+            { id: 'E', price: 700000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false },
+            { id: 'F', price: 800000, date: '1 year ago', condition: 'Too old.', isGood: false }
+        ]
+    },
+    // 25. Minor Cosmetic Only (Low ARV, Very Low Rehab)
+    {
+        id: 25,
+        address: "100 Happy Trails Ln",
+        beds: 2, baths: 1, sqFt: 850,
+        condition: "Move-in ready condition. Needs only fresh exterior paint and minor landscaping.",
+        trueARV: Math.round((165000 + 155000 + 160000) / 3),
+        trueRepairs: 8000,
+        repairOptions: [
+            { value: 5000, isCorrect: false },
+            { value: 8000, isCorrect: true },
+            { value: 11000, isCorrect: false },
+            { value: 14000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((165000 + 155000 + 160000) / 3)) - (2 * 8000) - 10000),
+        comps: [
+            { id: 'A', price: 165000, date: '1 week ago', condition: 'Perfect match, ideal ARV.', isGood: true },
+            { id: 'B', price: 155000, date: '3 weeks ago', condition: 'Good comp, slight adjustment for age.', isGood: true },
+            { id: 'C', price: 200000, date: '2 months ago', condition: 'Large garage added (exclude).', isGood: false },
+            { id: 'D', price: 160000, date: '2 months ago', condition: 'Solid match to true ARV.', isGood: true },
+            { id: 'E', price: 100000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'F', price: 130000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 26. Bad Electrical/Plumbing (Mid-High ARV, High Rehab)
+    {
+        id: 26,
+        address: "44 Sparky Street",
+        beds: 3, baths: 2, sqFt: 1700,
+        condition: "Kitchen and baths are fine, but the entire electrical and plumbing system must be replaced.",
+        trueARV: Math.round((375000 + 400000 + 385000) / 3),
+        trueRepairs: 85000,
+        repairOptions: [
+            { value: 50000, isCorrect: false },
+            { value: 85000, isCorrect: true },
+            { value: 120000, isCorrect: false },
+            { value: 155000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((375000 + 400000 + 385000) / 3)) - (2 * 85000) - 10000),
+        comps: [
+            { id: 'A', price: 375000, date: '1 month ago', condition: 'Similar size, good ARV.', isGood: true },
+            { id: 'B', price: 400000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 385000, date: '1 week ago', condition: 'Excellent recent comp.', isGood: true },
+            { id: 'D', price: 300000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'E', price: 450000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 320000, date: '6 months ago', condition: 'Investor as-is.', isGood: false }
+        ]
+    },
+    // 27. High ARV, Needs Cosmetic (High ARV, Low-Mid Rehab)
+    {
+        id: 27,
+        address: "909 Vista Point",
+        beds: 4, baths: 3, sqFt: 2800,
+        condition: "Luxury neighborhood. Needs cosmetic refresh of kitchen and baths to reach top market value.",
+        trueARV: Math.round((730000 + 680000 + 725000) / 3),
+        trueRepairs: 45000,
+        repairOptions: [
+            { value: 25000, isCorrect: false },
+            { value: 45000, isCorrect: true },
+            { value: 65000, isCorrect: false },
+            { value: 80000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((730000 + 680000 + 725000) / 3)) - (2 * 45000) - 10000),
+        comps: [
+            { id: 'A', price: 730000, date: '1 week ago', condition: 'Highest comp, good ARV target.', isGood: true },
+            { id: 'B', price: 680000, date: '2 months ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
+            { id: 'C', price: 725000, date: '3 weeks ago', condition: 'Perfect match, ideal ARV.', isGood: true },
+            { id: 'D', price: 800000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'E', price: 550000, date: '6 months ago', condition: 'Investor as-is.', isGood: false },
+            { id: 'F', price: 900000, date: '2 months ago', condition: 'New construction (ignore).', isGood: false }
+        ]
+    },
+    // 28. Garage Conversion Opportunity (Mid ARV, Mid Rehab)
+    {
+        id: 28,
+        address: "505 Corner Plot",
+        beds: 3, baths: 2, sqFt: 1350,
+        condition: "Garage can be converted to an extra bedroom/office (estimated $20k). Needs full interior update.",
+        trueARV: Math.round((325000 + 340000 + 335000) / 3),
+        trueRepairs: 55000,
+        repairOptions: [
+            { value: 35000, isCorrect: false },
+            { value: 55000, isCorrect: true },
+            { value: 75000, isCorrect: false },
+            { value: 100000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((325000 + 340000 + 335000) / 3)) - (2 * 55000) - 10000),
+        comps: [
+            { id: 'A', price: 325000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 340000, date: '2 weeks ago', condition: 'Includes garage conversion (good ARV).', isGood: true },
+            { id: 'C', price: 250000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 335000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 400000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 280000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 29. Tiny Home, High Price/SqFt (Low ARV, Low Rehab)
+    {
+        id: 29,
+        address: "88 Little Cottage",
+        beds: 1, baths: 1, sqFt: 500,
+        condition: "Micro unit in a trendy area. Needs minor cosmetic updates only.",
+        trueARV: Math.round((185000 + 200000 + 195000) / 3),
+        trueRepairs: 15000,
+        repairOptions: [
+            { value: 9000, isCorrect: false },
+            { value: 15000, isCorrect: true },
+            { value: 20000, isCorrect: false },
+            { value: 25000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((185000 + 200000 + 195000) / 3)) - (2 * 15000) - 10000),
+        comps: [
+            { id: 'A', price: 185000, date: '1 week ago', condition: 'Identical unit, reliable.', isGood: true },
+            { id: 'B', price: 200000, date: '1 month ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 250000, date: '2 months ago', condition: 'Large yard, subject has small patio.', isGood: false },
+            { id: 'D', price: 195000, date: '3 weeks ago', condition: 'Best recent comp.', isGood: true },
+            { id: 'E', price: 150000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'F', price: 100000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 30. High Risk, High Reward (Mid-High ARV, Very High Rehab)
+    {
+        id: 30,
+        address: "700 Cliffside View",
+        beds: 5, baths: 3, sqFt: 2800,
+        condition: "High-value area, but house is completely dilapidated. Full structural, system, and cosmetic gut required.",
+        trueARV: Math.round((700000 + 650000 + 670000) / 3),
+        trueRepairs: 150000,
+        repairOptions: [
+            { value: 90000, isCorrect: false },
+            { value: 150000, isCorrect: true },
+            { value: 210000, isCorrect: false },
+            { value: 270000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((700000 + 650000 + 670000) / 3)) - (2 * 150000) - 10000),
+        comps: [
+            { id: 'A', price: 700000, date: '1 month ago', condition: 'Fully renovated, excellent ARV.', isGood: true },
+            { id: 'B', price: 650000, date: '2 months ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'C', price: 800000, date: '1 week ago', condition: 'New construction (ignore).', isGood: false },
+            { id: 'D', price: 670000, date: '3 weeks ago', condition: 'Best recent comp.', isGood: true },
+            { id: 'E', price: 500000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'F', price: 400000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 31. Out of State Investor Special (Low ARV, Mid Rehab)
+    {
+        id: 31,
+        address: "420 Rust Belt Way",
+        beds: 3, baths: 1, sqFt: 1150,
+        condition: "Needs full kitchen, bath, and new flooring/paint. All systems functioning but old.",
+        trueARV: Math.round((135000 + 150000 + 140000) / 3),
+        trueRepairs: 35000,
+        repairOptions: [
+            { value: 20000, isCorrect: false },
+            { value: 35000, isCorrect: true },
+            { value: 50000, isCorrect: false },
+            { value: 65000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((135000 + 150000 + 140000) / 3)) - (2 * 35000) - 10000),
+        comps: [
+            { id: 'A', price: 135000, date: '1 month ago', condition: 'Similar condition, good ARV.', isGood: true },
+            { id: 'B', price: 150000, date: '2 weeks ago', condition: 'High end of comp range.', isGood: true },
+            { id: 'C', price: 180000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 140000, date: '1 week ago', condition: 'Perfect match to true ARV.', isGood: true },
+            { id: 'E', price: 100000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false },
+            { id: 'F', price: 200000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false }
+        ]
+    },
+    // 32. Standard Flip, Quick Turn (Mid ARV, Low-Mid Rehab)
+    {
+        id: 32,
+        address: "17 Good Deal St",
+        beds: 3, baths: 2, sqFt: 1550,
+        condition: "Needs new kitchen counters/appliances, updated bathrooms, and fresh paint.",
+        trueARV: Math.round((345000 + 320000 + 360000) / 3),
+        trueRepairs: 45000,
+        repairOptions: [
+            { value: 25000, isCorrect: false },
+            { value: 45000, isCorrect: true },
+            { value: 65000, isCorrect: false },
+            { value: 80000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((345000 + 320000 + 360000) / 3)) - (2 * 45000) - 10000),
+        comps: [
+            {  
+                { id: 'A', price: 345000, date: '1 month ago', condition: 'Excellent comp.', isGood: true },
+            { id: 'B', price: 320000, date: '3 weeks ago', condition: 'Slightly dated interior.', isGood: true },
+            { id: 'C', price: 360000, date: '2 months ago', condition: 'Premium finishes, adjust down.', isGood: true },
+            { id: 'D', price: 250000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'E', price: 400000, date: '6 months ago', condition: 'Next neighborhood over (ignore).', isGood: false },
+            { id: 'F', price: 280000, date: '4 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 33. Rural, High Acreage (Mid ARV, Mid Rehab)
+    {
+        id: 33,
+        address: "22 Farmland Way",
+        beds: 4, baths: 2, sqFt: 2000,
+        condition: "High acreage boosts ARV. House needs new roof and full cosmetic update.",
+        trueARV: Math.round((410000 + 405000 + 395000) / 3),
+        trueRepairs: 60000,
+        repairOptions: [
+            { value: 35000, isCorrect: false },
+            { value: 60000, isCorrect: true },
+            { value: 85000, isCorrect: false },
+            { value: 110000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((410000 + 405000 + 395000) / 3)) - (2 * 60000) - 10000),
+        comps: [
+            { id: 'A', price: 410000, date: '2 weeks ago', condition: 'Similar acreage, good ARV.', isGood: true },
+            { id: 'B', price: 350000, date: '1 month ago', condition: 'Low acreage (ignore).', isGood: false },
+            { id: 'C', price: 405000, date: '1 week ago', condition: 'Excellent match to true ARV.', isGood: true },
+            { id: 'D', price: 450000, date: '3 months ago', condition: 'Includes large barn (subject lacks one).', isGood: false },
+            { id: 'E', price: 395000, date: '4 months ago', condition: 'Solid ARV comp.', isGood: true },
+            { id: 'F', price: 300000, date: '1 year ago', condition: 'Too old.', isGood: false }
+        ]
+    },
+    // 34. Multi-Unit Property (High ARV, Mid Rehab)
+    {
+        id: 34,
+        address: "98 Duplex Drive",
+        beds: 6, baths: 3, sqFt: 2800,
+        condition: "Duplex needs cosmetic updates in both units to maximize rents. Systems are functional.",
+        trueARV: Math.round((600000 + 625000 + 550000) / 3),
+        trueRepairs: 70000,
+        repairOptions: [
+            { value: 40000, isCorrect: false },
+            { value: 70000, isCorrect: true },
+            { value: 100000, isCorrect: false },
+            { value: 125000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((600000 + 625000 + 550000) / 3)) - (2 * 70000) - 10000),
+        comps: [
+            { id: 'A', price: 600000, date: '1 month ago', condition: 'Similar duplex, good ARV.', isGood: true },
+            { id: 'B', price: 630000, date: '2 weeks ago', condition: 'Triplex unit (ignore).', isGood: false },
+            { id: 'C', price: 625000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'D', price: 550000, date: '4 months ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
+            { id: 'E', price: 400000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'F', price: 700000, date: '3 months ago', condition: 'New construction townhome (ignore).', isGood: false }
+        ]
+    },
+    // 35. High Rehab, Small House (Low ARV, Mid-High Rehab)
+    {
+        id: 35,
+        address: "12 Smallest Home Ln",
+        beds: 2, baths: 1, sqFt: 700,
+        condition: "Needs roof, electric panel, and full interior gut. Very old house.",
+        trueARV: Math.round((125000 + 100000 + 120000) / 3),
+        trueRepairs: 45000,
+        repairOptions: [
+            { value: 25000, isCorrect: false },
+            { value: 45000, isCorrect: true },
+            { value: 65000, isCorrect: false },
+            { value: 80000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((125000 + 100000 + 120000) / 3)) - (2 * 45000) - 10000),
+        comps: [
+            { id: 'A', price: 125000, date: '1 month ago', condition: 'Similar size, perfect ARV.', isGood: true },
+            { id: 'B', price: 100000, date: '3 weeks ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
+            { id: 'C', price: 150000, date: '2 months ago', condition: 'Two-story unit (ignore).', isGood: false },
+            { id: 'D', price: 120000, date: '1 week ago', condition: 'Excellent match to true ARV.', isGood: true },
+            { id: 'E', price: 80000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'F', price: 60000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 36. Suburban Split-Level (Mid ARV, Mid Rehab)
+    {
+        id: 36,
+        address: "77 Split Level Way",
+        beds: 4, baths: 3, sqFt: 2200,
+        condition: "Split-level style. Needs full cosmetic update and new HVAC system.",
+        trueARV: Math.round((470000 + 440000 + 460000) / 3),
+        trueRepairs: 60000,
+        repairOptions: [
+            { value: 35000, isCorrect: false },
+            { value: 60000, isCorrect: true },
+            { value: 85000, isCorrect: false },
+            { value: 110000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((470000 + 440000 + 460000) / 3)) - (2 * 60000) - 10000),
+        comps: [
+            { id: 'A', price: 470000, date: '2 weeks ago', condition: 'Similar style, good ARV.', isGood: true },
+            { id: 'B', price: 440000, date: '1 month ago', condition: 'Dated interior, lowest ARV comp.', isGood: true },
+            { id: 'C', price: 500000, date: '3 months ago', condition: 'Pool added (ignore).', isGood: false },
+            { id: 'D', price: 460000, date: '1 week ago', condition: 'Perfect match to true ARV.', isGood: true },
+            { id: 'E', price: 350000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'F', price: 550000, date: '6 months ago', condition: 'New construction ranch (ignore).', isGood: false }
+        ]
+    },
+    // 37. High-End Custom Home (High ARV, Mid Rehab)
+    {
+        id: 37,
+        address: "100 Gold Coast Dr",
+        beds: 5, baths: 4, sqFt: 3500,
+        condition: "Custom home, needs high-end kitchen and master bath renovation to match comps.",
+        trueARV: Math.round((920000 + 1000000 + 960000) / 3),
+        trueRepairs: 100000,
+        repairOptions: [
+            { value: 60000, isCorrect: false },
+            { value: 100000, isCorrect: true },
+            { value: 140000, isCorrect: false },
+            { value: 180000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((920000 + 1000000 + 960000) / 3)) - (2 * 100000) - 10000),
+        comps: [
+            { id: 'A', price: 920000, date: '1 month ago', condition: 'Similar custom home, solid ARV.', isGood: true },
+            { id: 'B', price: 1000000, date: '2 weeks ago', condition: 'Top end ARV comp.', isGood: true },
+            { id: 'C', price: 1200000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 960000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 750000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false },
+            { id: 'F', price: 800000, date: '4 months ago', condition: '4 bed, much smaller.', isGood: false }
+        ]
+    },
+    // 38. Cosmetic, Quick Flip (Mid ARV, Low Rehab)
+    {
+        id: 38,
+        address: "10 Fast Flip Lane",
+        beds: 3, baths: 2, sqFt: 1400,
+        condition: "Needs paint, flooring, and minor kitchen updates. Systems are all good.",
+        trueARV: Math.round((295000 + 310000 + 305000) / 3),
+        trueRepairs: 30000,
+        repairOptions: [
+            { value: 18000, isCorrect: false },
+            { value: 30000, isCorrect: true },
+            { value: 40000, isCorrect: false },
+            { value: 55000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((295000 + 310000 + 305000) / 3)) - (2 * 30000) - 10000),
+        comps: [
+            { id: 'A', price: 295000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 310000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 250000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 305000, date: '1 week ago', condition: 'Excellent match to true ARV.', isGood: true },
+            { id: 'E', price: 350000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 200000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 39. Massive Systems Failure (Mid ARV, Very High Rehab)
+    {
+        id: 39,
+        address: "20 Systems Out Place",
+        beds: 3, baths: 1, sqFt: 1100,
+        condition: "HVAC, roof, and water heater all need immediate replacement. Light cosmetic needed.",
+        trueARV: Math.round((265000 + 280000 + 275000) / 3),
+        trueRepairs: 80000,
+        repairOptions: [
+            { value: 50000, isCorrect: false },
+            { value: 80000, isCorrect: true },
+            { value: 110000, isCorrect: false },
+            { value: 145000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((265000 + 280000 + 275000) / 3)) - (2 * 80000) - 10000),
+        comps: [
+            { id: 'A', price: 265000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 280000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 220000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 275000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 300000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 200000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 40. High Sq Ft, Low Price/Sq Ft (Low ARV, Mid Rehab)
+    {
+        id: 40,
+        address: "50 Wide Open Ranch",
+        beds: 4, baths: 2, sqFt: 2500,
+        condition: "Large ranch home. Needs full interior renovation. All systems function but are old.",
+        trueARV: Math.round((350000 + 375000 + 360000) / 3),
+        trueRepairs: 60000,
+        repairOptions: [
+            { value: 35000, isCorrect: false },
+            { value: 60000, isCorrect: true },
+            { value: 85000, isCorrect: false },
+            { value: 110000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((350000 + 375000 + 360000) / 3)) - (2 * 60000) - 10000),
+        comps: [
+            { id: 'A', price: 350000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 375000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 300000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 360000, date: '1 week ago', condition: 'Excellent match to true ARV.', isGood: true },
+            { id: 'E', price: 450000, date: '3 months ago', condition: 'New construction (ignore).', isGood: false },
+            { id: 'F', price: 250000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 41. Starter Home, Major Upgrades (Mid ARV, Mid Rehab)
+    {
+        id: 41,
+        address: "70 Suburban Starter",
+        beds: 3, baths: 1, sqFt: 1100,
+        condition: "Needs full kitchen, bath, and electrical upgrade to modern standards.",
+        trueARV: Math.round((235000 + 250000 + 245000) / 3),
+        trueRepairs: 50000,
+        repairOptions: [
+            { value: 30000, isCorrect: false },
+            { value: 50000, isCorrect: true },
+            { value: 70000, isCorrect: false },
+            { value: 90000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((235000 + 250000 + 245000) / 3)) - (2 * 50000) - 10000),
+        comps: [
+            { id: 'A', price: 235000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 250000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 200000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 245000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 300000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 150000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 42. High-Density Townhome (Mid ARV, Low Rehab)
+    {
+        id: 42,
+        address: "505 Townhouse Lane",
+        beds: 3, baths: 2, sqFt: 1250,
+        condition: "HOA handles exterior. Interior needs only light cosmetic updates (paint, carpet).",
+        trueARV: Math.round((305000 + 320000 + 315000) / 3),
+        trueRepairs: 20000,
+        repairOptions: [
+            { value: 12000, isCorrect: false },
+            { value: 20000, isCorrect: true },
+            { value: 30000, isCorrect: false },
+            { value: 35000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((305000 + 320000 + 315000) / 3)) - (2 * 20000) - 10000),
+        comps: [
+            { id: 'A', price: 305000, date: '1 month ago', condition: 'Similar unit, good ARV.', isGood: true },
+            { id: 'B', price: 320000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 280000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 315000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 350000, date: '3 months ago', condition: 'End unit with premium (ignore).', isGood: false },
+            { id: 'F', price: 250000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 43. Old Systems, Clean Interior (Mid ARV, Mid-High Rehab)
+    {
+        id: 43,
+        address: "99 Antique Ave",
+        beds: 4, baths: 2, sqFt: 1900,
+        condition: "Clean interior but requires new furnace, water heater, and electrical panel.",
+        trueARV: Math.round((380000 + 400000 + 395000) / 3),
+        trueRepairs: 75000,
+        repairOptions: [
+            { value: 45000, isCorrect: false },
+            { value: 75000, isCorrect: true },
+            { value: 105000, isCorrect: false },
+            { value: 135000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((380000 + 400000 + 395000) / 3)) - (2 * 75000) - 10000),
+        comps: [
+            { id: 'A', price: 380000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 400000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 300000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 395000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 450000, date: '3 months ago', condition: 'New construction (ignore).', isGood: false },
+            { id: 'F', price: 320000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 44. Low-End, High Volume Area (Low ARV, Mid Rehab)
+    {
+        id: 44,
+        address: "70 Cheap Street",
+        beds: 2, baths: 1, sqFt: 800,
+        condition: "Needs full interior renovation (kitchen, bath, flooring). High volume turnover area.",
+        trueARV: Math.round((125000 + 135000 + 130000) / 3),
+        trueRepairs: 40000,
+        repairOptions: [
+            { value: 25000, isCorrect: false },
+            { value: 40000, isCorrect: true },
+            { value: 55000, isCorrect: false },
+            { value: 70000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((125000 + 135000 + 130000) / 3)) - (2 * 40000) - 10000),
+        comps: [
+            { id: 'A', price: 125000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 135000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 100000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 130000, date: '1 week ago', condition: 'Excellent match to true ARV.', isGood: true },
+            { id: 'E', price: 150000, date: '3 months ago', condition: '3 bed, much larger.', isGood: false },
+            { id: 'F', price: 80000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 45. Cosmetic Fix, High ARV (High ARV, Low Rehab)
+    {
+        id: 45,
+        address: "20 Millionaire Row",
+        beds: 4, baths: 3, sqFt: 3000,
+        condition: "High-end neighborhood. Needs cosmetic refresh of master bath and kitchen to maximize ARV.",
+        trueARV: Math.round((780000 + 820000 + 810000) / 3),
+        trueRepairs: 50000,
+        repairOptions: [
+            { value: 30000, isCorrect: false },
+            { value: 50000, isCorrect: true },
+            { value: 70000, isCorrect: false },
+            { value: 90000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((780000 + 820000 + 810000) / 3)) - (2 * 50000) - 10000),
+        comps: [
+            { id: 'A', price: 780000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 820000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 900000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 810000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 600000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false },
+            { id: 'F', price: 500000, date: '4 months ago', condition: '3 bed, much smaller.', isGood: false }
+        ]
+    },
+    // 46. Deferred Maintenance Special (Mid ARV, Mid-High Rehab)
+    {
+        id: 46,
+        address: "100 Backlog Blvd",
+        beds: 3, baths: 2, sqFt: 1600,
+        condition: "Roof is old, needs full interior renovation and new systems (HVAC, water heater).",
+        trueARV: Math.round((315000 + 330000 + 325000) / 3),
+        trueRepairs: 70000,
+        repairOptions: [
+            { value: 40000, isCorrect: false },
+            { value: 70000, isCorrect: true },
+            { value: 100000, isCorrect: false },
+            { value: 125000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((315000 + 330000 + 325000) / 3)) - (2 * 70000) - 10000),
+        comps: [
+            { id: 'A', price: 315000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 330000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 250000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 325000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 400000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 200000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 47. Small Ranch Home (Low ARV, Low-Mid Rehab)
+    {
+        id: 47,
+        address: "77 Ranch House Rd",
+        beds: 2, baths: 1, sqFt: 900,
+        condition: "Ranch style. Needs new flooring, paint, and minor kitchen updates.",
+        trueARV: Math.round((175000 + 185000 + 180000) / 3),
+        trueRepairs: 25000,
+        repairOptions: [
+            { value: 15000, isCorrect: false },
+            { value: 25000, isCorrect: true },
+            { value: 35000, isCorrect: false },
+            { value: 45000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((175000 + 185000 + 180000) / 3)) - (2 * 25000) - 10000),
+        comps: [
+            { id: 'A', price: 175000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 185000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 150000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 180000, date: '1 week ago', condition: 'Excellent match to true ARV.', isGood: true },
+            { id: 'E', price: 220000, date: '3 months ago', condition: '3 bed, much larger.', isGood: false },
+            { id: 'F', price: 120000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 48. High Volume, Low Price Area (Low ARV, Mid Rehab)
+    {
+        id: 48,
+        address: "22 Busy Street",
+        beds: 3, baths: 1, sqFt: 1200,
+        condition: "Needs full interior renovation. High volume rental area.",
+        trueARV: Math.round((145000 + 155000 + 150000) / 3),
+        trueRepairs: 45000,
+        repairOptions: [
+            { value: 25000, isCorrect: false },
+            { value: 45000, isCorrect: true },
+            { value: 65000, isCorrect: false },
+            { value: 80000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((145000 + 155000 + 150000) / 3)) - (2 * 45000) - 10000),
+        comps: [
+            { id: 'A', price: 145000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 155000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 110000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 150000, date: '1 week ago', condition: 'Excellent match to true ARV.', isGood: true },
+            { id: 'E
+                ', price: 180000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 90000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
+        ]
+    },
+    // 49. Large Lot, Suburbia (Mid ARV, Mid Rehab)
+    {
+        id: 49,
+        address: "33 Acreage Drive",
+        beds: 4, baths: 3, sqFt: 2100,
+        condition: "Large lot, needs full cosmetic update and new roof.",
+        trueARV: Math.round((420000 + 440000 + 435000) / 3),
+        trueRepairs: 60000,
+        repairOptions: [
+            { value: 35000, isCorrect: false },
+            { value: 60000, isCorrect: true },
+            { value: 85000, isCorrect: false },
+            { value: 110000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((420000 + 440000 + 435000) / 3)) - (2 * 60000) - 10000),
+        comps: [
+            { id: 'A', price: 420000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 440000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 350000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 435000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 500000, date: '3 months ago', condition: 'New construction (ignore).', isGood: false },
+            { id: 'F', price: 380000, date: '6 months ago', condition: 'As-is investor sale.', isGood: false }
+        ]
+    },
+    // 50. Final Heavy Rehab (Mid ARV, Very High Rehab)
+    {
+        id: 50,
+        address: "100 Finish Line Way",
+        beds: 3, baths: 2, sqFt: 1500,
+        condition: "Full gut job. Needs new roof, all systems, and total interior renovation.",
+        trueARV: Math.round((295000 + 310000 + 305000) / 3),
+        trueRepairs: 100000,
+        repairOptions: [
+            { value: 60000, isCorrect: false },
+            { value: 100000, isCorrect: true },
+            { value: 140000, isCorrect: false },
+            { value: 180000, isCorrect: false },
+        ],
+        trueMAO: Math.round((0.90 * Math.round((295000 + 310000 + 305000) / 3)) - (2 * 100000) - 10000),
+        comps: [
+            { id: 'A', price: 295000, date: '1 month ago', condition: 'Similar size, solid ARV.', isGood: true },
+            { id: 'B', price: 310000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
+            { id: 'C', price: 250000, date: '1 year ago', condition: 'Too old.', isGood: false },
+            { id: 'D', price: 305000, date: '1 week ago', condition: 'Excellent recent sale.', isGood: true },
+            { id: 'E', price: 350000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+            { id: 'F', price: 200000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
         ]
     }
-    // NOTE: Add remaining 45 properties here following the same pattern
-    // I'm showing 5 examples - you'll need to add properties 6-50 from your original data
 ];
 
 let currentProperty = null;
@@ -531,7 +1612,8 @@ function useHint() {
     if (goodComps.length === 0) return;
 
     const randomGoodComp = goodComps[Math.floor(Math.random() * goodComps.length)];
-const checkboxes = document.querySelectorAll('input[name="selected-comps"]');
+
+    const checkboxes = document.querySelectorAll('input[name="selected-comps"]');
     checkboxes.forEach(cb => {
         if (cb.value === randomGoodComp.id) {
             cb.parentElement.classList.add('comp-hint');
@@ -570,7 +1652,8 @@ function showCompFeedback(selectedComps, goodComps) {
 function animateScore(element) {
     element.classList.add('score-animate');
 
-    const finalValue = parseInt(element.textContent);
+    const textContent = element.textContent;
+    const finalValue = parseInt(textContent);
     let current = 0;
     const increment = Math.ceil(finalValue / 30);
     const timer = setInterval(() => {
@@ -612,3 +1695,4 @@ function fadeInElement(element) {
         element.classList.remove('fade-in');
     }, 500);
 }
+            
