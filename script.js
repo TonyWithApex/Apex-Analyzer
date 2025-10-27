@@ -28,13 +28,7 @@ function checkPassword() {
     }
 }
 
-// Allow Enter key to submit password
-document.addEventListener('DOMContentLoaded', function() {
-    const passwordInput = document.getElementById('password-input');
-    if (passwordInput) {
-        passwordInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
+
             }
         });
     }
