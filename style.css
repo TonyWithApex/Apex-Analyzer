@@ -1,0 +1,100 @@
+:root {
+  --apex-bg: #0b0d0f;
+  --apex-bg-2: #121417;
+  --apex-gold: #EFBF4D;
+  --apex-gold-2: #D79F2B;
+  --apex-gray: #9aa4b2;
+  --apex-light: #f0f0f0;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  color: var(--apex-light);
+  background: linear-gradient(180deg, var(--apex-bg), var(--apex-bg-2));
+  overflow-x: hidden;
+}
+.hidden { display: none !important; }
+
+#password-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 40%, rgba(239,191,77,0.18), transparent 70%),
+              radial-gradient(circle at 50% 100%, rgba(239,191,77,0.10), transparent 70%),
+              linear-gradient(180deg, var(--apex-bg), var(--apex-bg-2));
+  background-size: 200% 200%;
+  animation: shimmer 15s ease infinite;
+  z-index: 9999;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.fade-in {
+  animation: fadeIn 1.5s ease forwards;
+}
+.fade-out {
+  animation: fadeOut 2s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.overlay-content {
+  text-align: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(239,191,77,0.4);
+  border-radius: 18px;
+  box-shadow: 0 0 60px rgba(239,191,77,0.15);
+}
+.apex-gradient {
+  background: linear-gradient(90deg, var(--apex-gold), var(--apex-gold-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 2em;
+}
+#password-input {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid rgba(239,191,77,0.3);
+  border-radius: 10px;
+  background: #101214;
+  color: var(--apex-light);
+  font-size: 1em;
+  margin-top: 15px;
+}
+#password-btn {
+  background: linear-gradient(180deg, var(--apex-gold), var(--apex-gold-2));
+  border: none;
+  color: #111;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 10px 25px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+#password-btn:hover { transform: translateY(-2px); }
+#password-error {
+  color: #ff6666;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-weight: 600;
+}
+#password-error.show { opacity: 1; }
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+  color: var(--apex-gray);
+}

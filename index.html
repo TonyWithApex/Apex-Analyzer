@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🦈 The Apex Analyzer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="password-overlay" class="fade-in">
+    <div class="overlay-content">
+      <h1 class="apex-gradient">🦈 The Apex Analyzer</h1>
+      <p>Exclusive Access — Apex Investor Group</p>
+      <input type="password" id="password-input" placeholder="Enter Access Code">
+      <button id="password-btn" class="apex-btn">Unlock</button>
+      <p id="password-error">❌ Incorrect password</p>
+    </div>
+  </div>
+
+  <div id="game-content" class="hidden">
+    <script src="script.js"></script>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 <strong>Apex Investor Group</strong> | The Apex Analyzer – Powered by The Apex Method™</p>
+  </footer>
+
+  <script>
+    const CORRECT_PASSWORD = "ApexAnalyze2025";
+    const input = document.getElementById('password-input');
+    const error = document.getElementById('password-error');
+    const overlay = document.getElementById('password-overlay');
+    const btn = document.getElementById('password-btn');
+    const game = document.getElementById('game-content');
+
+    function unlock() {
+      if (input.value === CORRECT_PASSWORD) {
+        overlay.classList.add('fade-out');
+        setTimeout(() => {
+          overlay.style.display = 'none';
+          game.classList.remove('hidden');
+        }, 2000);
+      } else {
+        error.classList.add('show');
+        setTimeout(() => error.classList.remove('show'), 1500);
+        input.value = '';
+      }
+    }
+
+    btn.addEventListener('click', unlock);
+    input.addEventListener('keypress', e => { if (e.key === 'Enter') unlock(); });
+  </script>
+</body>
+</html>
