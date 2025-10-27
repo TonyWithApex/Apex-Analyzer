@@ -1192,7 +1192,7 @@ const properties = [
             { id: 'B', price: 155000, date: '2 weeks ago', condition: 'High-end finishes, adjust down.', isGood: true },
             { id: 'C', price: 110000, date: '1 year ago', condition: 'Too old.', isGood: false },
             { id: 'D', price: 150000, date: '1 week ago', condition: 'Excellent match to true ARV.', isGood: true },
-            { id: 'E', price: 180000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
+           { id: 'E', price: 180000, date: '3 months ago', condition: '4 bed, much larger.', isGood: false },
             { id: 'F', price: 90000, date: '6 months ago', condition: 'Foreclosure sale.', isGood: false }
         ]
     },
