@@ -1530,12 +1530,20 @@ function showFinalStats() {
 
 // Initialize game
 function initializeGame() {
-    console.log('Initializing Apex Analyzer...');
-    loadStats();
-    if (properties && properties.length > 0) {
-        loadProperty(properties[currentPropertyIndex]);
-    } else {
-        console.error('No properties found!');
+    console.log("✅ Apex Analyzer initialized successfully!");
+
+    // Simply make sure the container shows up — no content overwrite.
+    const container = document.getElementById('game-container');
+    container.style.display = 'block';
+    container.style.opacity = '1';
+
+    // If the game logic is already defined (properties, loadNewProperty, etc.), start the first property
+    try {
+        if (typeof loadNewProperty === "function") {
+            loadNewProperty();
+        }
+    } catch (e) {
+        console.warn("Game logic not loaded yet:", e);
     }
 }
 
