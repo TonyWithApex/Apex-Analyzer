@@ -27,20 +27,12 @@ function checkPassword() {
         }, 3000);
     }
 }
-
-
-            }
-        });
-    }
-    
-    // Check if user already has access
+ // Check if user already has access
     if (sessionStorage.getItem('apexAccess') === 'true') {
         document.getElementById('password-screen').classList.add('hidden');
         document.getElementById('game-container').classList.add('visible');
         initializeGame();
     }
-});
-
 // Global State Variables
 const properties = [
     // 1. Light Cosmetic Fix (Mid ARV, Low Rehab)
