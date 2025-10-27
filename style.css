@@ -1,0 +1,77 @@
+:root {
+  --apex-bg: #0c0c0c;
+  --apex-card: #1a1a1a;
+  --apex-gold: #caa55f;
+  --apex-gray: #b0b0b0;
+  --text-light: #f0f0f0;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: radial-gradient(circle at center, rgba(202,165,95,0.15) 0%, #0c0c0c 70%);
+  color: var(--text-light);
+  height: 100vh;
+  overflow: hidden;
+}
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.hidden { display: none !important; }
+.password-box {
+  background: var(--apex-card);
+  color: var(--text-light);
+  text-align: center;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5), 0 0 80px rgba(202,165,95,0.15);
+  width: 350px;
+  margin: 15vh auto;
+}
+.apex-logo {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+#password-input {
+  background: #111;
+  border: 1px solid #333;
+  color: var(--text-light);
+  padding: 10px;
+  border-radius: 8px;
+  width: 80%;
+  outline: none;
+  margin-top: 10px;
+}
+#password-btn {
+  margin-top: 15px;
+  background: var(--apex-gold);
+  border: none;
+  color: #111;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+#password-btn:hover {
+  opacity: 0.9;
+}
+#password-error {
+  color: #ff6666;
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-top: 10px;
+}
+#password-error.show {
+  opacity: 1;
+}
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: var(--apex-gray);
+  font-size: 0.9em;
+}
