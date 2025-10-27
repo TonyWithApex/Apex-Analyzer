@@ -12,251 +12,101 @@
     --error-color: #F44336;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ... existing unchanged CSS above ... */
 
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    line-height: 1.6;
-}
-
-/* --- PASSWORD SCREEN --- */
-.password-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* --- CALCULATOR DISPLAY --- */
+css.calculator-display input {
     width: 100%;
-    height: 100vh;
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.password-screen.hidden {
-    display: none;
-}
-
-.password-container {
-    background: var(--card-dark);
-    padding: 50px 40px;
-    border-radius: 15px;
-    text-align: center;
-    max-width: 450px;
-    width: 90%;
-    border: 2px solid var(--gold);
-    box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
-}
-
-.password-container h1 {
+    padding: 25px;
     font-size: 2.5em;
-    margin-bottom: 10px;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    text-align: right;
+    background: #252525;
+    border: 3px solid var(--gold);
+    border-radius: 12px;
+    color: var(--gold);
+    font-family: 'Courier New', monospace;
+    box-sizing: border-box;
+    font-weight: 700;
 }
 
-.password-container .shark-icon {
-    font-size: 4em;
-    margin: 20px 0;
-    animation: float 3s ease-in-out infinite;
+/* --- CALCULATOR BUTTONS --- */
+css.calc-btn {
+    padding: 25px;
+    font-size: 1.8em;
+    font-weight: 700;
+    background: #2a2a2a;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.2s;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.password-container p {
-    color: var(--text-faded);
-    margin-bottom: 30px;
-    font-size: 1.1em;
-}
-
-.password-input {
+/* --- NUMBER INPUT FIELDS --- */
+cssinput[type="number"] {
     width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
+    padding: 16px 20px;
     border: 2px solid var(--border-color);
     border-radius: 8px;
     background: #252525;
     color: var(--text-light);
-    font-size: 1.1em;
-    text-align: center;
+    font-size: 1.2em;
+    box-sizing: border-box;
     transition: all 0.3s;
+    font-weight: 500;
 }
 
-.password-input:focus {
+/* --- CHECKBOXES --- */
+css#comp-checkboxes label {
+    font-weight: 500;
+    color: var(--text-light);
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: #252525;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s;
+    font-size: 1.1em;
+}
+
+#comp-checkboxes label:hover {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+#comp-checkboxes input[type="checkbox"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--gold);
+}
+
+/* --- NEW ENHANCED STYLES --- */
+/* Enhanced input focus states */
+input[type="number"]:focus,
+input[type="password"]:focus {
     border-color: var(--gold);
     outline: none;
     box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-}
-
-.password-submit {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    background: var(--primary-gradient);
-    color: #000;
-    font-size: 1.2em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.password-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
 }
 
-.password-error {
-    color: var(--error-color);
-    margin-top: 15px;
-    font-weight: 600;
-    display: none;
-}
-
-.password-error.show {
-    display: block;
-    animation: shake 0.5s;
-}
-
-@keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(-10px);
-    }
-    75% {
-        transform: translateX(10px);
-    }
-}
-
-/* --- MAIN APP --- */
-.main-app {
-    display: none;
-}
-
-.main-app.unlocked {
-    display: block;
-}
-
-.container {
+/* Larger calculator container */
+.calculator {
     max-width: 100%;
-    margin: 0;
-    padding: 30px;
+    padding: 10px;
 }
 
-/* --- HEADER & FOOTER --- */
-header {
-    background: var(--card-dark);
-    padding: 20px 0;
-    border-bottom: 2px solid var(--gold);
-    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
-}
-
-.header-content {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 30px;
-}
-
-header h1 {
-    font-size: 2.5em;
-    font-weight: 700;
-    margin: 0;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-header p {
-    color: var(--text-faded);
-    margin: 5px 0 0;
-}
-
-.shark-badge {
-    display: inline-block;
-    font-size: 1.5em;
-    margin-right: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
-    border-top: 1px solid var(--border-color);
-    color: var(--text-faded);
-    font-size: 0.9em;
-}
-
-/* --- TWO COLUMN LAYOUT --- */
-.two-column-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-/* --- CARD STRUCTURE --- */
-.card {
-    background: var(--card-dark);
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 10px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--border-color);
-}
-
-.section-title {
-    font-size: 1.8em;
-    margin-top: 0;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--gold);
-    color: var(--text-light);
-}
-
-.section-subtitle {
-    margin-top: 20px;
-    color: var(--text-light);
-}
-
-/* --- PROPERTY DETAILS --- */
-.property-details-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.calculator-display {
     margin-bottom: 20px;
 }
 
-.detail-label {
-    display: block;
-    font-size: 0.85em;
-    color: var(--text-faded);
-    margin-bottom: 3px;
-}
-
-.detail-value {
-    font-size: 1.1em;
-    font-weight: 700;
-    margin: 0;
-}
-
-.condition-note {
-    font-style: italic;
-    padding: 10px;
-    border-left: 3px solid var(--gold);
-    background: #252525;
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
 }
