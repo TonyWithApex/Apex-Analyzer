@@ -69,6 +69,7 @@
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .password-container .shark-icon {
@@ -179,6 +180,7 @@
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         header p {
@@ -298,20 +300,23 @@
 
         input[type="number"] {
             width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
+            padding: 16px 20px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
             background: #252525;
             color: var(--text-light);
-            font-size: 1em;
+            font-size: 1.2em;
             box-sizing: border-box;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            font-weight: 500;
         }
 
-        input[type="number"]:focus {
+        input[type="number"]:focus,
+        input[type="password"]:focus {
             border-color: var(--gold);
             outline: none;
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
         }
 
         .comp-justification-label {
@@ -326,57 +331,73 @@
         }
 
         #comp-checkboxes label {
-            font-weight: 400;
+            font-weight: 500;
             color: var(--text-light);
             display: inline-flex;
             align-items: center;
             cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 4px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            background: #252525;
+            border: 2px solid var(--border-color);
             transition: all 0.3s;
+            font-size: 1.1em;
         }
 
         #comp-checkboxes label:hover {
             background: rgba(255, 215, 0, 0.1);
+            border-color: var(--gold);
+            transform: translateY(-2px);
         }
 
         #comp-checkboxes input[type="checkbox"] {
-            margin-right: 8px;
-            width: auto;
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--gold);
         }
 
         /* --- REPAIR OPTIONS --- */
+        #repair-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
         #repair-options label {
             font-weight: 500;
             color: var(--text-light);
             display: inline-flex;
             align-items: center;
             cursor: pointer;
-            padding: 10px 20px;
-            border-radius: 6px;
+            padding: 12px 18px;
+            border-radius: 8px;
             background: #252525;
             border: 2px solid var(--border-color);
             transition: all 0.3s;
+            font-size: 1.1em;
         }
 
         #repair-options label:hover {
             border-color: var(--gold);
-            background: rgba(255, 215, 0, 0.05);
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
         }
 
         #repair-options input[type="radio"] {
-            margin-right: 10px;
-            width: auto;
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
             cursor: pointer;
-        }
-
-        #repair-options input[type="radio"]:checked + * {
-            font-weight: 700;
+            accent-color: var(--gold);
         }
 
         #repair-options label:has(input[type="radio"]:checked) {
             border-color: var(--gold);
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 215, 0, 0.2);
+            font-weight: 700;
         }
 
         /* --- BUTTONS --- */
@@ -454,6 +475,7 @@
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-size: 2.2em;
         }
 
@@ -481,38 +503,40 @@
         /* --- CALCULATOR --- */
         .calculator {
             max-width: 100%;
+            padding: 10px;
         }
 
         .calculator-display {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .calculator-display input {
             width: 100%;
-            padding: 20px;
-            font-size: 1.8em;
+            padding: 25px;
+            font-size: 2.5em;
             text-align: right;
             background: #252525;
-            border: 2px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-light);
+            border: 3px solid var(--gold);
+            border-radius: 12px;
+            color: var(--gold);
             font-family: 'Courier New', monospace;
             box-sizing: border-box;
+            font-weight: 700;
         }
 
         .calculator-buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 15px;
         }
 
         .calc-btn {
-            padding: 20px;
-            font-size: 1.3em;
+            padding: 25px;
+            font-size: 1.8em;
             font-weight: 700;
             background: #2a2a2a;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
             color: var(--text-light);
             cursor: pointer;
             transition: all 0.2s;
@@ -919,7 +943,7 @@
             <div class="shark-icon">🦈</div>
             <h1>Apex Property Analyzer</h1>
             <p>Exclusive Access for Apex Academy Students</p>
-            <input type="password" id="password-input" class="password-input" placeholder="Enter Access Code">
+            <input type="password" id="password-input" class="password-input" placeholder="Enter Access Code" onkeypress="if(event.key==='Enter') checkPassword()">
             <button onclick="checkPassword()" class="password-submit">Unlock Access</button>
             <p class="password-error" id="password-error">❌ Incorrect password. Try again.</p>
         </div>
@@ -929,7 +953,7 @@
     <div id="main-app" class="main-app">
         <header>
             <div class="header-content">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
                     <div>
                         <h1><span class="shark-badge">🦈</span>Apex Property Analyzer</h1>
                         <p>Master the art of real estate comps analysis and MAO calculations</p>
@@ -1051,7 +1075,7 @@
                 </div>
                 <div id="repair-options-section">
                     <h3 class="section-subtitle" style="margin-top: 20px;">Estimated Repairs</h3>
-                    <div id="repair-options" style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 10px;">
+                    <div id="repair-options">
                         <!-- Repair options will be populated by JavaScript -->
                     </div>
                 </div>
@@ -1109,4 +1133,105 @@
                     <p style="font-style: italic; color: #b0b0b0;">Use the comps and condition report to make your best estimate.</p>
 
                     <div class="input-group">
-                        <label class="comp-justification-label">1. Which com
+                        <label class="comp-justification-label">1. Which comps did you use for your analysis?</label>
+                        <div id="comp-checkboxes">
+                            <!-- Dynamically populated with checkboxes -->
+                        </div>
+                        <button type="button" id="hint-btn" class="hint-button" onclick="useHint()">
+                            💡 Use Hint (-10 points)
+                        </button>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="input-arv">2. Estimated After Repair Value (ARV)</label>
+                        <input type="number" id="input-arv" placeholder="Enter ARV (e.g., 300000)" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="input-repairs">3. Estimated Repairs Cost</label>
+                        <input type="number" id="input-repairs" placeholder="Enter Repair Cost (e.g., 50000)">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="input-mao">4. Your Calculated MAO (Maximum Allowable Offer)</label>
+                        <input type="number" id="input-mao" placeholder="Enter your MAO (e.g., 200000)" required>
+                        <span style="font-size: 0.85em; color: #b0b0b0; margin-top: 5px; display: block;">
+                            Use the calculator above. Formula: (ARV × 90%) - (Repairs × 2) - $10,000
+                        </span>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="cta-button">Submit Analysis & Get Score</button>
+                </form>
+            </div>
+
+            <!-- Results - Full Width -->
+            <div id="results" class="card results-card hidden">
+                <h2 class="section-title">Results & Feedback</h2>
+
+                <div class="result-metrics">
+                    <div>
+                        <span class="metric-label">Your Calculated MAO</span>
+                        <p class="metric-value" id="player-mao">--</p>
+                        <span style="font-size: 0.8em; color: #b0b0b0;">(ARV × 90% - Repairs × 2 - $10k Fee)</span>
+                    </div>
+                    <div>
+                        <span class="metric-label">Your Score</span>
+                        <p class="metric-value score-display" id="final-score">-- / 100</p>
+                    </div>
+                </div>
+
+                <div id="feedback"></div>
+
+                <div>
+                    <h3 class="section-subtitle">The Truth (Actual Deal Metrics)</h3>
+                    <p><strong>True ARV:</strong> <span id="true-arv">--</span></p>
+                    <p><strong>True Repairs:</strong> <span id="true-repairs">--</span></p>
+                    <p style="color: #FFD700;"><strong>True MAO:</strong> <span id="true-mao">--</span></p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div style="text-align: center; margin-top: 20px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" onclick="loadNewProperty()" id="next-challenge-btn" class="cta-button secondary-button" disabled>
+                    Next Challenge ➡️
+                </button>
+                <button type="button" onclick="loadRandomProperty()" id="random-deal-btn" class="cta-button secondary-button">
+                    🎲 Random Deal
+                </button>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Apex Academy | Apex Property Analyzer 🦈</p>
+        </footer>
+    </div>
+
+    <script>
+    // Password Protection
+    function checkPassword() {
+        const input = document.getElementById('password-input');
+        const errorMsg = document.getElementById('password-error');
+        const passwordScreen = document.getElementById('password-screen');
+        const mainApp = document.getElementById('main-app');
+        
+        if (input.value === 'ApexAnalyzer2025') {
+            passwordScreen.classList.add('hidden');
+            mainApp.classList.add('unlocked');
+            // Initialize the game after password is correct
+            if (typeof properties !== 'undefined' && properties.length > 0) {
+                loadProperty(properties[currentPropertyIndex]);
+            }
+        } else {
+            errorMsg.classList.add('show');
+            input.value = '';
+            setTimeout(() => {
+                errorMsg.classList.remove('show');
+            }, 3000);
+        }
+    }
+
+    // [REST OF YOUR JAVASCRIPT FROM script.js GOES HERE]
+    // Copy everything from your script.js file starting with the properties array
+    </script>
+</body>
+</html>
