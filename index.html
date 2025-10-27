@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Apex Analyzer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="password-screen">
+    <div class="password-container">
+      <div class="apex-logo">🦈</div>
+      <h1>The Apex Analyzer</h1>
+      <p>Exclusive Access for Apex Investor Group Members Only</p>
+      <div class="password-input-group">
+        <input type="password" id="password-input" placeholder="Enter Access Code" autocomplete="off">
+      </div>
+      <button class="password-submit">Enter</button>
+      <p class="password-error" id="password-error">❌ Invalid access code. Please try again.</p>
+    </div>
+  </div>
+
+  <div id="welcome-screen" class="hidden">
+    <div class="welcome-container">
+      <div class="apex-logo">🦈</div>
+      <h1>Welcome, Apex Member</h1>
+      <p>Exclusive access granted. Launch the analyzer to begin your next deal simulation.</p>
+      <button id="start-analyzer" class="password-submit" type="button">Start Analyzer</button>
+    </div>
+  </div>
+
+  <div id="game-container" class="hidden"></div>
+
+  <footer>
+    <p>&copy; 2025 <strong>Apex Investor Group</strong> | The Apex Analyzer – Powered by The Apex Method™</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

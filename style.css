@@ -1,0 +1,40 @@
+:root {
+  --bg-dark: #171717;
+  --card-dark: #202020;
+  --text-light: #f0f0f0;
+  --text-faded: #b0b0b0;
+  --apex-gold: #caa55f;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+.hidden { display: none !important; }
+.visible { display: block !important; }
+.password-container, .welcome-container {
+  max-width: 500px;
+  margin: 10vh auto;
+  text-align: center;
+  background: var(--card-dark);
+  padding: 2em;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+.password-submit {
+  background: var(--apex-gold);
+  border: none;
+  color: #000;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.password-submit:hover { opacity: 0.9; }
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: var(--text-faded);
+}
